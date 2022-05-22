@@ -1,0 +1,40 @@
+---
+import Head from '../components/Head.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import Nav from '../components/Nav.astro';
+import Info from '../components/Info.astro';
+import Footer from '../components/Footer.astro';
+import { request } from '../utils/request';
+import { page } from '../graphql/page';
+
+import type { Res } from '../types/main.d';
+
+const space: string = import.meta.env.SPACE_ID;
+const vars = { title: 'index' };
+
+const json: Res = await request(space, page, vars);
+
+const {
+	meta,
+	header,
+	footer,
+	content,
+	navigation
+} = json.data.page;
+const [about, info] = content;
+---
+
+
+<html lang="en">
+	<Head {...meta} />
+	<body>
+		<Hero {...header} />
+		<Nav {...navigation} />
+		<main aria-label="Main content">
+			<About {...about} />
+			<Info {...info} />
+		</main>
+		<Footer {...footer} />
+	</body>
+</html>

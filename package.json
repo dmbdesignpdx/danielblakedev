@@ -1,0 +1,24 @@
+{
+  "name": "daniel-blake-dev",
+  "description": "Daniel Blake's personal website.",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "min": "node ./scripts/minify.cjs",
+    "export": "npm run build && npm run min"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "dependencies": {
+    "astro": "^1.0.0-beta.31",
+    "html-minifier-terser": "^7.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31"
+  }
+}

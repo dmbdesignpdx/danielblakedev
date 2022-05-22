@@ -1,0 +1,89 @@
+---
+import type { Header as Props } from '../types/main.d';
+
+const { heading, subheading } = Astro.props as Props;
+---
+
+
+<header class="Hero" aria-label={heading}>
+  <h1 data-sr-only>{heading}</h1>
+  <h2 data-text={subheading}>{subheading}</h2>
+</header>
+
+
+<style is:inline>
+.Hero {
+  --set-x: 0;
+  --set-y: 0;
+  contain: strict;
+  display: grid;
+  block-size: 100%;
+  max-block-size: 60rem;
+  place-items: center;
+  border-block-end: 10px solid var(--color-tertiary);
+  border-image: linear-gradient(to left, var(--gradient)) 1;
+  transform-style: preserve-3d;
+}
+
+.Hero h2 {
+  inline-size: min-content;
+  position: relative;
+  margin-block-end: .175em;
+  font-size: clamp(4rem, 10vw, 9rem);
+  font-weight: 900;
+  letter-spacing: -0.02ch;
+  text-transform: lowercase;
+  line-height: 1;
+  text-rendering: geometricPrecision;
+}
+
+.Hero h2::before {
+  position: absolute;
+  z-index: -1;
+  content: attr(data-text);
+  font: inherit;
+  color: transparent;
+  filter: blur(15px) saturate(140%);
+  background-image: linear-gradient(to right, var(--gradient));
+  -webkit-background-clip: text;
+  background-clip: text;
+  transform: translate(var(--set-x), var(--set-y));
+  transition: transform 0.2s;
+  backface-visibility: hidden;
+}
+</style>
+
+
+<script is:inline>
+const hero = document.querySelector('.Hero');
+
+if (hero) {
+  let centerX = 0;
+  let centerY = 0;
+
+  const setPositions = e => {
+    const distX = e.clientX - centerX;
+    const distY = e.clientY - centerY;
+    const setX = Math.round(distX / 25);
+    const setY = Math.round(distY / 20);
+
+    hero.style.setProperty('--set-x', `${setX}px`);
+    hero.style.setProperty('--set-y', `${setY}px`);
+  };
+
+  const resetPositions = () => {
+    hero.style.setProperty('--set-x', '0');
+    hero.style.setProperty('--set-y', '0');
+  };
+
+  hero.addEventListener('mousemove', setPositions, { passive: true });
+  hero.addEventListener('mouseout', resetPositions);
+
+  const resize = new ResizeObserver(() => {
+    centerX = hero.clientWidth / 2;
+    centerY = hero.clientHeight / 2;
+  });
+
+  resize.observe(hero);
+}
+</script>

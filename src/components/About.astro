@@ -1,0 +1,57 @@
+---
+import { Markdown as Text } from 'astro/components';
+
+import type { Content as Props } from '../types/main.d';
+
+const {
+  heading,
+  copy,
+  figure,
+} = Astro.props as Props;
+---
+
+
+<section
+  class="About"
+  data-std-layout
+  aria-label={heading}
+>
+  <h2 data-sr-only="">{heading}</h2>
+  <figure>
+    <p title={figure.caption}>{figure.text}</p>
+    <figcaption data-sr-only>{figure.caption}</figcaption>
+  </figure>
+  <Text>{copy}</Text>
+</section>
+
+
+<style is:inline>
+.About {
+  --size: 2rem;
+  contain: content;
+  padding-block: 20vh 15vh;
+}
+
+.About figure p {
+  inline-size: fit-content;
+  margin: auto;
+  font-size: var(--size);
+  text-align: center;
+  cursor: help;
+  text-shadow:
+    1px 0 var(--color-text-primary),
+    0 1px var(--color-text-primary),
+    -1px 0 var(--color-text-primary),
+    0 -1px var(--color-text-primary);
+}
+
+.About > p {
+  margin-block-start: 15vh;
+}
+
+@media (min-width: 48rem) {
+  .About {
+    --size: 3.2rem;
+  }
+}
+</style>

@@ -1,0 +1,53 @@
+---
+import { Markdown as Text } from 'astro/components';
+
+import type { Footer as Props } from '../types/main.d';
+
+const {
+  heading,
+  copy,
+  secondaryCopy,
+} = Astro.props as Props;
+
+const year: number = new Date().getFullYear();
+---
+
+
+<footer
+  class="Footer"
+  data-wide-layout
+  aria-label={heading}
+>
+  <h2 data-sr-only>{heading}</h2>
+  <Text>{copy}</Text>
+  <p><small>Copyright {year} {secondaryCopy}</small></p>
+</footer>
+
+
+<style is:inline>
+.Footer {
+  contain: content;
+  content-visibility: auto;
+  display: flex;
+  padding-block: 6rem 7rem;
+  contain-intrinsic-size: 0 300px;
+  flex-flow: var(--global-dir);
+  gap: 4rem;
+  background-color: var(--color-surface-secondary);
+}
+
+.Footer p {
+  font-size: 1rem;
+  line-height: 1.3;
+  letter-spacing: .06ch;
+  color: var(--color-text-primary);
+}
+
+.Footer p:first-child {
+  flex: 3;
+}
+
+.Footer p:last-child {
+  flex: 2;
+}
+</style>

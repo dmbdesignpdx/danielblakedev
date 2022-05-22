@@ -1,0 +1,55 @@
+---
+import Critical from './Critical.astro';
+
+import type { Meta as Props } from '../types/main.d';
+
+const {
+  title,
+  author,
+  url,
+  description,
+  image,
+  theme,
+} = Astro.props as Props;
+
+const PROD: boolean = import.meta.env.PROD;
+---
+
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  {PROD && (
+    <link
+      rel="preload"
+      href="/fonts/inter.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    >
+  )}
+  <Critical />
+  <meta name="author" content={author} />
+  <meta name="canonical" content={url} />
+  <meta name='color-scheme' content='dark light'>
+  <meta name="theme-color" content={theme.hex} />
+  <meta name="twitter:card" content='summary_large_image'>
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={image}>
+  <meta name="twitter:image:alt" content={description}>
+  <meta name="twitter:url" content={url}>
+  <meta property="og:type" content='website'>
+  <meta property="og:title" content={title}>
+  <meta property="og:site_name" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={image}>
+  <meta property="og:url" content={url}>
+  <meta name='format-detection' content='email=no'>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/dan.webmanifest" />
+</head>
