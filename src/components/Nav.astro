@@ -1,7 +1,9 @@
 ---
-import type { Navigation as Props } from '../types/main.d';
+import type { Navigation } from '../types/main.d';
 
-const { heading, links } = Astro.props as Props;
+interface Props extends Navigation {}
+
+const { heading, links } = Astro.props;
 const { pathname } = Astro.site;
 ---
 
@@ -25,7 +27,7 @@ const { pathname } = Astro.site;
 </nav>
 
 
-<style is:inline>
+<style>
 .Nav {
   contain: strict;
   display: flex;

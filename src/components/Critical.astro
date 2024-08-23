@@ -1,4 +1,4 @@
-<style is:inline>
+<style is:global>
 @font-face {
   font-family: Inter;
   src: url('/fonts/inter.woff2') format('woff2-variations');
@@ -8,7 +8,7 @@
 }
 
 html {
-  font: 400 1em Inter, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  font-size: 100%;
 }
 
 :root {
@@ -34,6 +34,14 @@ html {
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+
 body,
 h2,
 p,
@@ -41,10 +49,6 @@ figure {
   padding: 0;
   margin: 0;
   border: 0;
-}
-
-html, body {
-  block-size: 100%;
 }
 
 body :where(*, *::before) {
@@ -55,11 +59,10 @@ body {
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
   touch-action: manipulation;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   background-color: var(--color-surface-primary);
   color: var(--color-text-primary);
+  font: 400 1em Inter, sans-serif;
 }
 
 a {

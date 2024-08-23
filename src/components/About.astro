@@ -1,13 +1,16 @@
 ---
-import { Markdown as Text } from 'astro/components';
+import { marked } from 'marked';
+import type { Content } from '../types/main.d';
 
-import type { Content as Props } from '../types/main.d';
+interface Props extends Content {}
 
 const {
   heading,
   copy,
   figure,
-} = Astro.props as Props;
+} = Astro.props;
+
+const content = await marked.parseInline(copy);
 ---
 
 
@@ -16,16 +19,16 @@ const {
   data-std-layout
   aria-label={heading}
 >
-  <h2 data-sr-only="">{heading}</h2>
+  <h2 data-sr-only>{heading}</h2>
   <figure>
     <p title={figure.caption}>{figure.text}</p>
     <figcaption data-sr-only>{figure.caption}</figcaption>
   </figure>
-  <Text>{copy}</Text>
+  <p set:html={content} />
 </section>
 
 
-<style is:inline>
+<style>
 .About {
   --size: 2rem;
   contain: content;

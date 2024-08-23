@@ -1,14 +1,16 @@
 ---
-import { Markdown as Text } from 'astro/components';
+import { marked } from 'marked';
+import type { Footer } from '../types/main.d';
 
-import type { Footer as Props } from '../types/main.d';
+interface Props extends Footer {}
 
 const {
   heading,
   copy,
   secondaryCopy,
-} = Astro.props as Props;
+} = Astro.props;
 
+const content = await marked.parseInline(copy);
 const year: number = new Date().getFullYear();
 ---
 
@@ -19,12 +21,12 @@ const year: number = new Date().getFullYear();
   aria-label={heading}
 >
   <h2 data-sr-only>{heading}</h2>
-  <Text>{copy}</Text>
+  <p set:html={content} />
   <p><small>Copyright {year} {secondaryCopy}</small></p>
 </footer>
 
 
-<style is:inline>
+<style>
 .Footer {
   contain: content;
   content-visibility: auto;
