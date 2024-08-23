@@ -1,6 +1,9 @@
 {
   "recommendations": [
     "astro-build.astro-vscode",
-    "streetsidesoftware.code-spell-checker"
+    "streetsidesoftware.code-spell-checker",
+    "dbaeumer.vscode-eslint",
+    "graphql.vscode-graphql",
+    "graphql.vscode-graphql-syntax"
   ],
 }

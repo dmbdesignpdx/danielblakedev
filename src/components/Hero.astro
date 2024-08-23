@@ -1,23 +1,27 @@
 ---
-import type { Header as Props } from '../types/main.d';
+import type { Header } from '../types/main.d';
 
-const { heading, subheading } = Astro.props as Props;
+interface Props extends Header {}
+
+const { heading, subheading } = Astro.props;
 ---
 
 
 <header class="Hero" aria-label={heading}>
-  <h1 data-sr-only>{heading}</h1>
-  <h2 data-text={subheading}>{subheading}</h2>
+  <hgroup>
+    <h1 data-sr-only>{heading}</h1>
+  <p data-text={subheading}>{subheading}</p>
+  </hgroup>
 </header>
 
 
-<style is:inline>
+<style>
 .Hero {
   --set-x: 0;
   --set-y: 0;
   contain: strict;
   display: grid;
-  block-size: 100%;
+  block-size: 100vb;
   max-block-size: 60rem;
   place-items: center;
   border-block-end: 10px solid var(--color-tertiary);
@@ -25,10 +29,10 @@ const { heading, subheading } = Astro.props as Props;
   transform-style: preserve-3d;
 }
 
-.Hero h2 {
+.Hero p {
   inline-size: min-content;
   position: relative;
-  margin-block-end: .175em;
+  margin-block-end: 0.175em;
   font-size: clamp(4rem, 10vw, 9rem);
   font-weight: 900;
   letter-spacing: -0.02ch;
@@ -37,7 +41,7 @@ const { heading, subheading } = Astro.props as Props;
   text-rendering: geometricPrecision;
 }
 
-.Hero h2::before {
+.Hero p::before {
   position: absolute;
   z-index: -1;
   content: attr(data-text);
@@ -54,14 +58,14 @@ const { heading, subheading } = Astro.props as Props;
 </style>
 
 
-<script is:inline>
-const hero = document.querySelector('.Hero');
+<script>
+const hero = document.querySelector<HTMLElement>('.Hero');
 
 if (hero) {
-  let centerX = 0;
-  let centerY = 0;
+  let centerX: number = 0;
+  let centerY: number = 0;
 
-  const setPositions = e => {
+  function setPositions(e: MouseEvent) {
     const distX = e.clientX - centerX;
     const distY = e.clientY - centerY;
     const setX = Math.round(distX / 25);
@@ -71,7 +75,7 @@ if (hero) {
     hero.style.setProperty('--set-y', `${setY}px`);
   };
 
-  const resetPositions = () => {
+  function resetPositions () {
     hero.style.setProperty('--set-x', '0');
     hero.style.setProperty('--set-y', '0');
   };

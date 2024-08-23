@@ -1,0 +1,17 @@
+{
+  "cSpell.words": [
+    "astro",
+    "danielblake"
+  ],
+  "cSpell.ignorePaths": [
+    "pnpm-lock.yaml",
+    "node_modules",
+    "src/constants",
+    ".vscode",
+    ".astro",
+    ".codesandbox",
+    ".github",
+    "dist",
+    "public"
+  ]
+}

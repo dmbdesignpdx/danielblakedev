@@ -1,7 +1,8 @@
 ---
+import type { Meta } from '../types/main.d';
 import Critical from './Critical.astro';
 
-import type { Meta as Props } from '../types/main.d';
+interface Props extends Meta {}
 
 const {
   title,
@@ -10,7 +11,7 @@ const {
   description,
   image,
   theme,
-} = Astro.props as Props;
+} = Astro.props;
 
 const PROD: boolean = import.meta.env.PROD;
 ---

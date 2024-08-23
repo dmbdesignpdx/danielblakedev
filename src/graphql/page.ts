@@ -1,4 +1,4 @@
-export const page = `#graphql 
+export const pageQuery = `#graphql 
   query Page($title: String) {
     page(where: { title: $title }) {
       meta {

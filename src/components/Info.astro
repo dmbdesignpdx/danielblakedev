@@ -1,7 +1,9 @@
 ---
-import type { Content as Props } from '../types/main.d';
+import type { Content } from '../types/main.d';
 
-const { heading, links } = Astro.props as Props;
+interface Props extends Content {}
+
+const { heading, links } = Astro.props;
 ---
 
 
@@ -25,7 +27,7 @@ const { heading, links } = Astro.props as Props;
 </section>
 
 
-<style is:inline>
+<style>
 .Info {
   contain: content;
   content-visibility: auto;
