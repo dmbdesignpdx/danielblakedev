@@ -1,60 +1,44 @@
 ---
-import { marked } from 'marked';
-import type { Content } from '../types/main.d';
+import { getEntry } from "astro:content";
 
-interface Props extends Content {}
-
-const {
-  heading,
-  copy,
-  figure,
-} = Astro.props;
-
-const content = await marked.parseInline(copy);
+const entry = await getEntry("site", "about");
+const { Content } = await entry.render();
 ---
 
 
-<section
-  class="About"
-  data-std-layout
-  aria-label={heading}
+<section 
+  class="About" 
+  data-layout 
 >
-  <h2 data-sr-only>{heading}</h2>
+  <h2 data-sr>{entry.data.heading}</h2>
   <figure>
-    <p title={figure.caption}>{figure.text}</p>
-    <figcaption data-sr-only>{figure.caption}</figcaption>
+    <p title={entry.data.caption}>{entry.data.figure}</p>
+    <figcaption data-sr>{entry.data.caption}</figcaption>
   </figure>
-  <p set:html={content} />
+  <Content />
 </section>
 
 
 <style>
 .About {
-  --size: 2rem;
   contain: content;
-  padding-block: 20vh 15vh;
+  padding-block: 20vi 15vb;
 }
 
 .About figure p {
   inline-size: fit-content;
   margin: auto;
-  font-size: var(--size);
+  font-size: var(--font-size-icons);
   text-align: center;
   cursor: help;
   text-shadow:
-    1px 0 var(--color-text-primary),
-    0 1px var(--color-text-primary),
-    -1px 0 var(--color-text-primary),
-    0 -1px var(--color-text-primary);
+    1px 0 var(--color-text-on-background),
+    0 1px var(--color-text-on-background),
+    -1px 0 var(--color-text-on-background),
+    0 -1px var(--color-text-on-background);
 }
 
-.About > p {
-  margin-block-start: 15vh;
-}
-
-@media (min-width: 48rem) {
-  .About {
-    --size: 3.2rem;
-  }
+.About figure {
+  margin-block-end: 15vb;
 }
 </style>

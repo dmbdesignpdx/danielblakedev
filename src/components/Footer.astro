@@ -1,55 +1,34 @@
 ---
-import { marked } from 'marked';
-import type { Footer } from '../types/main.d';
+import { getEntry } from "astro:content";
 
-interface Props extends Footer {}
-
-const {
-  heading,
-  copy,
-  secondaryCopy,
-} = Astro.props;
-
-const content = await marked.parseInline(copy);
+const entry = await getEntry("site", "footer");
+const { Content } = await entry.render();
 const year: number = new Date().getFullYear();
 ---
 
-
-<footer
-  class="Footer"
-  data-wide-layout
-  aria-label={heading}
->
-  <h2 data-sr-only>{heading}</h2>
-  <p set:html={content} />
-  <p><small>Copyright {year} {secondaryCopy}</small></p>
+<footer class="Footer" data-layout-wide>
+  <h2 data-sr>{entry.data.heading}</h2>
+  <Content />
+  <p><small>Copyright {year} {entry.data.copyright}</small></p>
 </footer>
-
 
 <style>
 .Footer {
   contain: content;
   content-visibility: auto;
-  display: flex;
   padding-block: 6rem 7rem;
   contain-intrinsic-size: 0 300px;
-  flex-flow: var(--global-dir);
-  gap: 4rem;
-  background-color: var(--color-surface-secondary);
-}
-
-.Footer p {
-  font-size: 1rem;
+  color: var(--color-text-on-surface);
+  background-color: var(--color-surface);
   line-height: 1.3;
-  letter-spacing: .06ch;
-  color: var(--color-text-primary);
+  letter-spacing: 0.06ch;
 }
 
-.Footer p:first-child {
-  flex: 3;
+.Footer small {
+  font-size: var(--font-size-small);
 }
 
-.Footer p:last-child {
-  flex: 2;
+:global(.Footer p:first-of-type) {
+  font-size: var(--font-size-link);
 }
 </style>

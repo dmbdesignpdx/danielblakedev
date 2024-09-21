@@ -1,29 +1,29 @@
 ---
-import type { Navigation } from '../types/main.d';
+import {
+  Section,
+  Links,
+} from '../constants';
+import Button from '../components/Button.astro';
 
-interface Props extends Navigation {}
-
-const { heading, links } = Astro.props;
-const { pathname } = Astro.site;
+const id = Section.Nav.ID;
+const [ home, contact ] = Links.Nav;
 ---
 
 
 <nav
   class="Nav"
-  data-wide-layout
-  aria-label={heading}
+  data-layout-wide
+  aria-labelledby={id} 
 >
-  <h2 data-sr-only>{heading}</h2>
-  {links.map(link => (
-    <a
-      class="Link"
-      href={link.url} 
-      aria-current={link.url === pathname ? 'page' : undefined}
-    >
-      {link.text}
-      <span aria-hidden="true">&nbsp;{link.icon}</span>
-    </a>
-  ))}
+  <h2 id={id} data-sr>{Section.Nav.HEADING}</h2>
+  <p aria-hidden="true">
+    {home.LABEL}
+  </p>
+  <Button
+    label={contact.LABEL}
+    href={contact.URL}
+    icon={contact.ICON}
+  />
 </nav>
 
 
@@ -36,29 +36,11 @@ const { pathname } = Astro.site;
   inset-block-start: 0;
   justify-content: space-between;
   align-items: center;
-  pointer-events: none;
 }
 
-.Nav a {
-  pointer-events: auto;
-}
-
-.Nav a:first-of-type {
+.Nav p {
   padding-inline: 0;
   font-size: var(--global-link-home-size);
   font-weight: 400;
-}
-
-.Nav a:last-of-type {
-  border: 1px solid var(--color-secondary);
-}
-
-.Nav a:first-of-type:is(:hover, :focus-visible) {
-  color: var(--color-secondary);
-}
-
-.Nav a:last-of-type:is(:hover, :focus-visible) {
-  color: black;
-  background-color: var(--color-secondary);
 }
 </style>

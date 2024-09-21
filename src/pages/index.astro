@@ -1,39 +1,27 @@
 ---
-import type { Res } from '../types/main.d';
+import Head from "../components/Head.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Nav from "../components/Nav.astro";
+import Info from "../components/Info.astro";
+import Footer from "../components/Footer.astro";
+import { GTM, Section } from "../constants";
+import "../styles/global.css";
 
-import Head from '../components/Head.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Nav from '../components/Nav.astro';
-import Info from '../components/Info.astro';
-import Footer from '../components/Footer.astro';
-import { request } from '../utils/request';
-import { pageQuery } from '../graphql/page';
-import {
-	SPACE,
-	ENV,
-	CONTENT,
-	TITLE,
-} from '../constants/main';
-
-
-const url = `${CONTENT}/${SPACE}/${ENV}`;
-const vars = { title: TITLE };
-const json: Res = await request(url, pageQuery, vars);
-const { page } = json.data;
-const [about, info] = page.content;
+const PROD: boolean = import.meta.env.PROD;
 ---
 
 
 <html lang="en">
-	<Head {...page.meta} />
-	<body>
-		<Hero {...page.header} />
-		<Nav {...page.navigation} />
-		<main aria-label="Main content">
-			<About {...about} />
-			<Info {...info} />
-		</main>
-		<Footer {...page.footer} />
-	</body>
+  <Head />
+  <body>
+    <Hero />
+    <Nav />
+    <main aria-label={Section.MAIN}>
+      <About />
+      <Info />
+    </main>
+    <Footer />
+    {PROD && <noscript set:html={GTM.BODY} />}
+  </body>
 </html>

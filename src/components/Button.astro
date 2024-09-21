@@ -1,0 +1,70 @@
+---
+interface Props {
+  label: string;
+  icon: string;
+  href?: string;
+  newTab?: boolean;
+}
+
+const { 
+  label,
+  href,
+  newTab,
+  icon,
+} = Astro.props;
+const target = newTab ? "_blank" : undefined;
+const rel = newTab ? "noopener noreferrer" : undefined;
+---
+
+
+<a
+  class="Button"
+  href={href}
+  target={target}
+  rel={rel}
+>
+  {label}
+  <span aria-hidden="true">&nbsp;{icon}</span>
+</a>
+
+
+<style>
+.Button {
+  display: flex;
+  min-block-size: var(--size-ui);
+  min-inline-size: var(--size-ui);
+  padding-inline: 1.5ch;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--global-link-size);
+  border-radius: 4px;
+  text-transform: lowercase;
+}
+
+.Button:first-of-type {
+  border: 1px solid var(--color-primary);
+}
+
+.Button:nth-of-type(2) {
+  border: 1px solid var(--color-secondary);
+}
+
+.Button:last-of-type {
+  border: 1px solid var(--color-tertiary);
+}
+
+.Button:first-of-type:is(:hover, :focus-visible) {
+  background: var(--color-primary);
+  color: var(--color-text-on-primary);
+}
+
+.Button:nth-of-type(2):is(:hover, :focus-visible) {
+  background: var(--color-secondary);
+  color: var(--color-text-on-secondary);;
+}
+
+.Button:last-of-type:is(:hover, :focus-visible) {
+  background: var(--color-tertiary);
+  color: var(--color-text-on-tertiary);
+}
+</style>
