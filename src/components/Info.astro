@@ -1,33 +1,26 @@
 ---
 import { Links, Section } from "../constants";
-import Button from '../components/Button.astro';
+import Button from "../components/Button.astro";
 ---
 
-
-<section class="root" data-std-layout aria-label={Section.INFO}>
-  <h2 data-sr-only>{Section.INFO}</h2>
-  {
-    Links.Info.map(link => (
-      <Button 
-        label={link.LABEL}
-        href={link.URL}
-        icon={link.ICON}
-        newTab
-      />
-    ))
-  }
+<section class="root" data-layout>
+	<h2 data-sr>{Section.INFO}</h2>
+	{
+		Links.Info.map((link) => (
+			<Button label={link.LABEL} href={link.URL} icon={link.ICON} newTab />
+		))
+	}
 </section>
 
-
 <style>
-  .root {
-    contain: content;
-    content-visibility: auto;
-    display: flex;
-    padding-block: 0 20vh;
-    contain-intrinsic-size: 0 19rem;
-    flex-flow: var(--global-dir);
-    justify-content: space-between;
-    gap: var(--gap);
-  }
+	.root {
+		contain: content;
+		content-visibility: auto;
+		display: flex;
+		padding-block: 0 20vh;
+		contain-intrinsic-size: 0 19rem;
+		flex-flow: var(--flex-column);
+		justify-content: space-between;
+		gap: var(--gap);
+	}
 </style>

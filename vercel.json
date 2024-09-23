@@ -5,5 +5,6 @@
   "framework": "astro",
   "installCommand": "pnpm install --prod",
   "outputDirectory": "dist",
-  "trailingSlash": false
+  "trailingSlash": false,
+	"regions": ["pdx1"]
 }

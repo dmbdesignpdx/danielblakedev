@@ -5,40 +5,39 @@ const entry = await getEntry("site", "about");
 const { Content } = await entry.render();
 ---
 
-
-<section 
-  class="About" 
-  data-layout 
->
-  <h2 data-sr>{entry.data.heading}</h2>
-  <figure>
-    <p title={entry.data.caption}>{entry.data.figure}</p>
-    <figcaption data-sr>{entry.data.caption}</figcaption>
-  </figure>
-  <Content />
+<section class="About" data-layout>
+	<h2 data-sr>{entry.data.heading}</h2>
+	<figure>
+		<p title={entry.data.caption}>{entry.data.figure}</p>
+		<figcaption data-sr>{entry.data.caption}</figcaption>
+	</figure>
+	<Content />
 </section>
 
-
 <style>
-.About {
-  contain: content;
-  padding-block: 20vi 15vb;
-}
+	.About {
+		contain: content;
+		padding-block: var(--space-large);
+	}
 
-.About figure p {
-  inline-size: fit-content;
-  margin: auto;
-  font-size: var(--font-size-icons);
-  text-align: center;
-  cursor: help;
-  text-shadow:
-    1px 0 var(--color-text-on-background),
-    0 1px var(--color-text-on-background),
-    -1px 0 var(--color-text-on-background),
-    0 -1px var(--color-text-on-background);
-}
+	.About figure p {
+		inline-size: fit-content;
+		margin: auto;
+		font-size: var(--font-size-icons);
+		text-align: center;
+		cursor: help;
+		text-shadow:
+			1px 0 var(--color-text-on-background),
+			0 1px var(--color-text-on-background),
+			-1px 0 var(--color-text-on-background),
+			0 -1px var(--color-text-on-background);
+	}
 
-.About figure {
-  margin-block-end: 15vb;
-}
+	.About figure {
+		margin-block-end: var(--space-large);
+	}
+
+	.About :global(p:last-of-type) {
+		margin-block-start: 1rem;
+	}
 </style>

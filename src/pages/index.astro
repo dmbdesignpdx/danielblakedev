@@ -2,7 +2,6 @@
 import Head from "../components/Head.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
-import Nav from "../components/Nav.astro";
 import Info from "../components/Info.astro";
 import Footer from "../components/Footer.astro";
 import { GTM, Section } from "../constants";
@@ -11,17 +10,15 @@ import "../styles/global.css";
 const PROD: boolean = import.meta.env.PROD;
 ---
 
-
 <html lang="en">
-  <Head />
-  <body>
-    <Hero />
-    <Nav />
-    <main aria-label={Section.MAIN}>
-      <About />
-      <Info />
-    </main>
-    <Footer />
-    {PROD && <noscript set:html={GTM.BODY} />}
-  </body>
+	<Head />
+	<body>
+		<Hero />
+		<main aria-label={Section.MAIN}>
+			<About />
+			<Info />
+		</main>
+		<Footer />
+		{PROD && <noscript set:html={GTM.BODY} />}
+	</body>
 </html>

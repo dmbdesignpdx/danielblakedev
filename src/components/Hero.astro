@@ -1,90 +1,107 @@
 ---
-import { Meta, Name, Section } from "../constants";
+import { Name, Links } from "../constants";
+import Button from "./Button.astro";
 
-const { AUTHOR, TITLE } = Meta;
+const { Contact } = Links;
 ---
 
-
-<header class="Hero" aria-labelledby={Section.Hero.ID}>
-  <hgroup>
-    <h1 id={Section.Hero.ID} data-sr>{Name.FULL}</h1>
-    <p data-text={Name.CAREER}>{Name.CAREER}</p>
-  </hgroup>
+<header class="Hero">
+	<hgroup>
+		<h1>{Name.FULL}</h1>
+		<p data-text={Name.CAREER}>{Name.CAREER}</p>
+	</hgroup>
+	<Button label={Contact.LABEL} href={Contact.URL} icon={Contact.ICON} />
 </header>
 
-
 <style>
-  .Hero {
-    --set-x: 0;
-    --set-y: 0;
-    contain: strict;
-    display: grid;
-    block-size: 100vb;
-    place-items: center;
-    border-block-end: 10px solid var(--color-tertiary);
-    border-image: linear-gradient(to left, var(--gradient)) 1;
-    transform-style: preserve-3d;
-  }
+	.Hero {
+		--set-x: 0;
+		--set-y: 0;
+		contain: strict;
+		display: grid;
+		block-size: 100vb;
+		place-items: center;
+		border-block-end: 10px solid var(--color-tertiary);
+		border-image: linear-gradient(to left, var(--gradient)) 1;
+		transform-style: preserve-3d;
+	}
 
-  .Hero p {
-    inline-size: min-content;
-    position: relative;
-    margin-block-end: 0.175em;
-    font-size: var(--font-size-heading);
-    font-weight: 900;
-    letter-spacing: -0.02ch;
-    text-transform: lowercase;
-    line-height: 1;
-    text-rendering: geometricPrecision;
-  }
+	.Hero hgroup {
+		position: static;
+	}
 
-  .Hero p::before {
-    position: absolute;
-    z-index: -1;
-    content: attr(data-text);
-    font: inherit;
-    color: transparent;
-    filter: blur(15px) saturate(140%);
-    background-image: linear-gradient(to right, var(--gradient));
-    -webkit-background-clip: text;
-    background-clip: text;
-    transform: translate(var(--set-x), var(--set-y));
-    transition: transform 0.2s;
-    backface-visibility: hidden;
-  }
+	.Hero p {
+		inline-size: min-content;
+		margin-block-end: 0.175em;
+		font-size: var(--font-size-heading);
+		font-weight: var(--font-weight-black);
+		letter-spacing: var(--letter-spacing-heading);
+		text-transform: lowercase;
+		line-height: var(--line-height-heading);
+		text-rendering: geometricPrecision;
+	}
+
+	.Hero p::before {
+		position: absolute;
+		z-index: -1;
+		content: attr(data-text);
+		font: inherit;
+		color: transparent;
+		filter: blur(15px) saturate(140%);
+		background-image: linear-gradient(to right, var(--gradient));
+		-webkit-background-clip: text;
+		background-clip: text;
+		transform: translate(var(--set-x), var(--set-y));
+		transition: transform 0.2s;
+		backface-visibility: hidden;
+	}
+
+	.Hero h1 {
+		font-size: var(--font-size-title);
+		font-weight: var(--font-weight-regular);
+		position: absolute;
+		inset-inline-start: var(--margin);
+		inset-block-start: calc(var(--margin) + 0.05ex);
+		inlinse-size: fit-content;
+	}
+
+	.Hero :global(.Button) {
+		position: absolute;
+		inset-inline-end: var(--margin);
+		inset-block-start: var(--margin);
+	}
 </style>
 
-
 <script>
-  const hero = document.querySelector<HTMLElement>(".Hero");
+	const hero = document.querySelector<HTMLElement>(".Hero");
 
-  if (hero) {
-    let centerX: number = 0;
-    let centerY: number = 0;
+	if (hero) {
+		let centerX: number = 0;
+		let centerY: number = 0;
 
-    function setPositions(e: MouseEvent) {
-      const distX = e.clientX - centerX;
-      const distY = e.clientY - centerY;
-      const setX = Math.round(distX / 25);
-      const setY = Math.round(distY / 20);
+		function setPositions(e: MouseEvent) {
+			const distX = e.clientX - centerX;
+			const distY = e.clientY - centerY;
+			const setX = Math.round(distX / 25);
+			const setY = Math.round(distY / 20);
 
-      hero!.style.setProperty("--set-x", `${setX}px`);
-      hero!.style.setProperty("--set-y", `${setY}px`);
-    }
+			hero!.style.setProperty("--set-x", `${setX}px`);
+			hero!.style.setProperty("--set-y", `${setY}px`);
+		}
 
-    function resetPositions() {
-      hero!.style.setProperty("--set-x", "0");
-      hero!.style.setProperty("--set-y", "0");
-    }
+		function resetPositions() {
+			hero!.style.setProperty("--set-x", "0");
+			hero!.style.setProperty("--set-y", "0");
+		}
 
-    hero.addEventListener("mousemove", setPositions, { passive: true });
-    hero.addEventListener("mouseout", resetPositions);
+		hero.addEventListener("mousemove", setPositions, { passive: true });
+		hero.addEventListener("mouseout", resetPositions);
 
-    const resize = new ResizeObserver(() => {
-      centerX = hero.clientWidth / 2;
-      centerY = hero.clientHeight / 2;
-    });
+		const resize = new ResizeObserver(() => {
+			centerX = hero.clientWidth / 2;
+			centerY = hero.clientHeight / 2;
+		});
 
-    resize.observe(hero);
-  }
+		resize.observe(hero);
+	}
 </script>

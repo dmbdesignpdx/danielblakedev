@@ -1,10 +1,10 @@
 {
-  "compilerOptions": {
-    "target": "ES2022",
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "strictNullChecks": true,
-    "allowJs": true
-  }
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"strict": true,
+		"strictNullChecks": true,
+		"allowJs": true
+	}
 }
