@@ -15,12 +15,12 @@
   --gradient: var(--color-primary), var(--color-secondary),
     var(--color-tertiary);
 
-	--flex-column: column wrap;
+  --flex-column: column wrap;
 
   --font-body: "Inter";
   --font-heading: var(--font-body);
 
-  --font-size-heading: clamp(4rem, 15vi, 9rem);
+  --font-size-heading: clamp(4rem, 14vi, 7rem);
   --font-size-icons: clamp(2rem, 1.12rem + 4.41vw, 3.125rem);
   --font-size-title: 1.75rem;
   --font-size-body: 1.25rem;
@@ -45,19 +45,19 @@
   --space-16: 1rem;
   --space-18: 1.125rem;
   --space-20: 1.25rem;
-	--space-48: 3rem;
+  --space-48: 3rem;
   --space-32: 2rem;
-	--space-96: 6rem;
-	--space-112: 7rem;
-	--space-large: 15vb;
+  --space-96: 6rem;
+  --space-112: 7rem;
+  --space-large: 15vb;
 
   --size-ui: 2.75rem;
-	--size-about-top: 20vb;
-	--size-about-bottom: 15vb;
-	--size-desktop: 48rem;
+  --size-about-top: 20vb;
+  --size-about-bottom: 15vb;
+  --size-desktop: 48rem;
 
   --gap: var(--space-16);
-	--margin: var(--space-16);
+  --margin: var(--space-16);
 }
 
 @media (prefers-color-scheme: light) {
@@ -103,7 +103,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-text-on-background);
   font-optical-sizing: auto;
-  font-family: var(--font-body, sans-serif);
+  font-family: var(--font-body), sans-serif;
   font-size: var(--font-size-body);
   font-weight: var(--font-weight-regular);
   letter-spacing: var(--letter-spacing-body);

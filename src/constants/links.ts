@@ -1,13 +1,14 @@
 import * as URL from "./urls";
 import * as Icon from "./icons";
 import * as Label from "./labels";
-import * as Name from "./name";
+
 
 interface Link {
   LABEL: string;
   URL: string;
   ICON: string;
 }
+
 
 export const GitHub: Link = {
   LABEL: Label.GIT_HUB,
@@ -21,28 +22,29 @@ export const LinkedInLink: Link = {
   ICON: Icon.LINKED_IN,
 };
 
-export const CodePenLink: Link = {
-  LABEL: Label.CODE_PEN,
-  URL: URL.CODE_PEN,
-  ICON: Icon.CODE_PEN,
-};
-
 export const Contact: Link = {
   LABEL: Label.CONTACT,
   URL: URL.MAIL_TO,
   ICON: Icon.CONTACT,
 };
 
-export const Home: Link = {
-  LABEL: Name.FULL,
-  URL: URL.HOME,
-  ICON: "",
+export const MetaCert: Link = {
+  LABEL: Label.META_CERT,
+  URL: URL.META,
+  ICON: Icon.META_CERT,
 };
 
-export const InfoList: Link[] = [GitHub, LinkedInLink, CodePenLink];
+export const AstroCert: Link = {
+  LABEL: Label.ASTRO_CERT,
+  URL: URL.ASTRO,
+  ICON: Icon.ASTRO_CERT,
+};
 
-export const NavList: Link[] = [Home, Contact];
+export const CertDict: Link = {
+  LABEL: Label.ALL_CERT,
+  URL: URL.ALL,
+  ICON: Icon.ALL_CERT,
+};
 
-export const Info: Link[] = [GitHub, LinkedInLink, CodePenLink];
-
-export const Nav: Link[] = [Home, Contact];
+export const Certs: Link[] = [MetaCert, AstroCert, CertDict];
+export const Info: Link[] = [GitHub, LinkedInLink];

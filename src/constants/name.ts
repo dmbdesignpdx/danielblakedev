@@ -1,8 +1,8 @@
 export const FIRST = "Daniel";
 export const LAST = "Blake";
 export const FULL = `${FIRST} ${LAST}`;
-export const CAREER = "Web Developer";
-export const TITLE = `Frontend ${CAREER}`;
+export const CAREER = "Analytics Engineer";
+export const TITLE = `Data & ${CAREER}`;
 
 export const LowerCase = {
   FIRST: FIRST.toLocaleLowerCase(),

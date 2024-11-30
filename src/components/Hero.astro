@@ -10,7 +10,11 @@ const { Contact } = Links;
 		<h1>{Name.FULL}</h1>
 		<p data-text={Name.CAREER}>{Name.CAREER}</p>
 	</hgroup>
-	<Button label={Contact.LABEL} href={Contact.URL} icon={Contact.ICON} />
+	<Button
+		label={Contact.LABEL}
+		href={Contact.URL}
+		icon={Contact.ICON}
+	/>
 </header>
 
 <style>
@@ -36,7 +40,6 @@ const { Contact } = Links;
 		font-size: var(--font-size-heading);
 		font-weight: var(--font-weight-black);
 		letter-spacing: var(--letter-spacing-heading);
-		text-transform: lowercase;
 		line-height: var(--line-height-heading);
 		text-rendering: geometricPrecision;
 	}
@@ -62,7 +65,7 @@ const { Contact } = Links;
 		position: absolute;
 		inset-inline-start: var(--margin);
 		inset-block-start: calc(var(--margin) + 0.05ex);
-		inlinse-size: fit-content;
+		inline-size: fit-content;
 	}
 
 	.Hero :global(.Button) {

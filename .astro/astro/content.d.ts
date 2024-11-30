@@ -1,3 +1,4 @@
+// @ts-nocheck
 declare module 'astro:content' {
 	interface RenderResult {
 		Content: import('astro/runtime/server/index.js').AstroComponentFactory;

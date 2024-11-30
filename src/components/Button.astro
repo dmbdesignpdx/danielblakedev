@@ -11,9 +11,14 @@ const target = newTab ? "_blank" : undefined;
 const rel = newTab ? "noopener noreferrer" : undefined;
 ---
 
-<a class="Button" href={href} target={target} rel={rel}>
+<a
+	class="Button"
+	href={href}
+	target={target}
+	rel={rel}
+>
+	<span aria-hidden="true">{icon}</span>&nbsp;
 	{label}
-	<span aria-hidden="true">&nbsp;{icon}</span>
 </a>
 
 <style>
@@ -26,32 +31,31 @@ const rel = newTab ? "noopener noreferrer" : undefined;
 		align-items: center;
 		font-size: var(--font-size-link);
 		border-radius: 4px;
-		text-transform: lowercase;
 	}
 
-	.Button:first-of-type {
+	.Button:nth-of-type(3n+1) {
 		border: 1px solid var(--color-primary);
 	}
 
-	.Button:nth-of-type(2) {
+	.Button:nth-of-type(3n+2) {
 		border: 1px solid var(--color-secondary);
 	}
 
-	.Button:last-of-type {
+	.Button:nth-of-type(3n+3) {
 		border: 1px solid var(--color-tertiary);
 	}
 
-	.Button:first-of-type:is(:hover, :focus-visible) {
+	.Button:nth-of-type(3n+1):is(:hover, :focus-visible) {
 		background: var(--color-primary);
 		color: var(--color-text-on-primary);
 	}
 
-	.Button:nth-of-type(2):is(:hover, :focus-visible) {
+	.Button:nth-of-type(3n+2):is(:hover, :focus-visible) {
 		background: var(--color-secondary);
 		color: var(--color-text-on-secondary);
 	}
 
-	.Button:last-of-type:is(:hover, :focus-visible) {
+	.Button:nth-of-type(3n+3):is(:hover, :focus-visible) {
 		background: var(--color-tertiary);
 		color: var(--color-text-on-tertiary);
 	}

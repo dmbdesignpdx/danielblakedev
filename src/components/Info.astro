@@ -1,13 +1,25 @@
 ---
-import { Links, Section } from "../constants";
+import { Section } from "../constants";
 import Button from "../components/Button.astro";
 ---
 
 <section class="root" data-layout>
 	<h2 data-sr>{Section.INFO}</h2>
 	{
-		Links.Info.map((link) => (
-			<Button label={link.LABEL} href={link.URL} icon={link.ICON} newTab />
+		Section.InfoSection.map(item => (
+			<>
+				<h3>{item.Heading}</h3>
+				{
+					item.Links.map((link) => (
+						<Button
+							label={link.LABEL}
+							href={link.URL}
+							icon={link.ICON}
+							newTab
+						/>
+					))
+				}
+			</>
 		))
 	}
 </section>
@@ -16,11 +28,19 @@ import Button from "../components/Button.astro";
 	.root {
 		contain: content;
 		content-visibility: auto;
-		display: flex;
+		display: grid;
+		grid: auto / 1fr 1fr 1fr;
 		padding-block: 0 20vh;
 		contain-intrinsic-size: 0 19rem;
-		flex-flow: var(--flex-column);
-		justify-content: space-between;
 		gap: var(--gap);
+	}
+
+	h3 {
+		grid-column: 1 / -1;
+		font-size: var(--font-size-link)
+	}
+
+	h3:not(:first-of-type) {
+		margin-block-start: var(--space-32);
 	}
 </style>
