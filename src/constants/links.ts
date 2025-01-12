@@ -9,7 +9,6 @@ interface Link {
   ICON: string;
 }
 
-
 export const GitHub: Link = {
   LABEL: Label.GIT_HUB,
   URL: URL.GIT_HUB,
@@ -46,5 +45,27 @@ export const CertDict: Link = {
   ICON: Icon.ALL_CERT,
 };
 
-export const Certs: Link[] = [MetaCert, AstroCert, CertDict];
-export const Info: Link[] = [GitHub, LinkedInLink];
+export const IBMCert: Link = {
+  LABEL: Label.IBM_CERT,
+  URL: URL.IBM,
+  ICON: Icon.IBM_CERT,
+};
+
+export const Gists: Link = {
+  LABEL: Label.GISTS,
+  URL: URL.GISTS,
+  ICON: Icon.GISTS,
+};
+
+export const Certs: Link[] = [
+    IBMCert,
+    MetaCert,
+    AstroCert,
+    CertDict,
+];
+
+export const Info: Link[] = [
+    GitHub,
+    LinkedInLink,
+    Gists,
+];

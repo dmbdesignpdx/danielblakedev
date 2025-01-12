@@ -33,30 +33,39 @@ const rel = newTab ? "noopener noreferrer" : undefined;
 		border-radius: 4px;
 	}
 
-	.Button:nth-of-type(3n+1) {
+	.Button:nth-of-type(4n+1) {
 		border: 1px solid var(--color-primary);
 	}
 
-	.Button:nth-of-type(3n+2) {
+	.Button:nth-of-type(4n+2) {
 		border: 1px solid var(--color-secondary);
 	}
 
-	.Button:nth-of-type(3n+3) {
+	.Button:nth-of-type(4n+3) {
 		border: 1px solid var(--color-tertiary);
 	}
 
-	.Button:nth-of-type(3n+1):is(:hover, :focus-visible) {
+	.Button:nth-of-type(4n+4) {
+		border: 1px solid var(--color-highlight);
+	}
+
+	.Button:nth-of-type(4n+1):is(:hover, :focus-visible) {
 		background: var(--color-primary);
 		color: var(--color-text-on-primary);
 	}
 
-	.Button:nth-of-type(3n+2):is(:hover, :focus-visible) {
+	.Button:nth-of-type(4n+2):is(:hover, :focus-visible) {
 		background: var(--color-secondary);
 		color: var(--color-text-on-secondary);
 	}
 
-	.Button:nth-of-type(3n+3):is(:hover, :focus-visible) {
+	.Button:nth-of-type(4n+3):is(:hover, :focus-visible) {
 		background: var(--color-tertiary);
 		color: var(--color-text-on-tertiary);
+	}
+
+	.Button:nth-of-type(4n+4):is(:hover, :focus-visible) {
+		background: var(--color-highlight);
+		color: var(--color-text-on-highlight);
 	}
 </style>
