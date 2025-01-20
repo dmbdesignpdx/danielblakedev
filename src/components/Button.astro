@@ -6,7 +6,12 @@ interface Props {
 	newTab?: boolean;
 }
 
-const { label, href, newTab, icon } = Astro.props;
+const {
+	label,
+	href,
+	newTab,
+	icon,
+} = Astro.props;
 const target = newTab ? "_blank" : undefined;
 const rel = newTab ? "noopener noreferrer" : undefined;
 ---

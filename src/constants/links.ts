@@ -67,5 +67,5 @@ export const Certs: Link[] = [
 export const Info: Link[] = [
     GitHub,
     LinkedInLink,
-    Gists,
+    // Gists,
 ];
