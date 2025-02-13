@@ -12,3 +12,4 @@ export const ASTRO = "https://www.linkedin.com/learning/certificates/89d7c11b746
 export const ALL = "https://www.linkedin.com/in/danielblakepdx/details/certifications";
 export const IBM = "https://coursera.org/share/c9cf5adbb1919db04889be31ea941ac2";
 export const GISTS = "https://gist.github.com/dmbdesignpdx/public";
+export const CODEPEN = "https://codepen.io/dmbdesignpdx";

@@ -57,6 +57,12 @@ export const Gists: Link = {
   ICON: Icon.GISTS,
 };
 
+export const CodePen: Link = {
+  LABEL: Label.CODEPEN,
+  URL: URL.CODEPEN,
+  ICON: Icon.CODEPEN,
+};
+
 export const Certs: Link[] = [
     IBMCert,
     MetaCert,
@@ -67,5 +73,6 @@ export const Certs: Link[] = [
 export const Info: Link[] = [
     GitHub,
     LinkedInLink,
+    CodePen,
     // Gists,
 ];

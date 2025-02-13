@@ -6,3 +6,4 @@ export const ASTRO_CERT = "Astronomer";
 export const ALL_CERT = "Full List";
 export const IBM_CERT = "IBM";
 export const GISTS = "Gists";
+export const CODEPEN = "CodePen";

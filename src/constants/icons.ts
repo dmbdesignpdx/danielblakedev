@@ -6,3 +6,4 @@ export const ASTRO_CERT = "🚀";
 export const ALL_CERT = "🚚";
 export const IBM_CERT = "✈️";
 export const GISTS = "🎨";
+export const CODEPEN = "🎨";
