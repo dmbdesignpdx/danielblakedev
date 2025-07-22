@@ -27,30 +27,6 @@ export const Contact: Link = {
   ICON: Icon.CONTACT,
 };
 
-export const MetaCert: Link = {
-  LABEL: Label.META_CERT,
-  URL: URL.META,
-  ICON: Icon.META_CERT,
-};
-
-export const AstroCert: Link = {
-  LABEL: Label.ASTRO_CERT,
-  URL: URL.ASTRO,
-  ICON: Icon.ASTRO_CERT,
-};
-
-export const CertDict: Link = {
-  LABEL: Label.ALL_CERT,
-  URL: URL.ALL,
-  ICON: Icon.ALL_CERT,
-};
-
-export const IBMCert: Link = {
-  LABEL: Label.IBM_CERT,
-  URL: URL.IBM,
-  ICON: Icon.IBM_CERT,
-};
-
 export const Gists: Link = {
   LABEL: Label.GISTS,
   URL: URL.GISTS,
@@ -63,16 +39,8 @@ export const CodePen: Link = {
   ICON: Icon.CODEPEN,
 };
 
-export const Certs: Link[] = [
-    IBMCert,
-    MetaCert,
-    AstroCert,
-    CertDict,
-];
-
 export const Info: Link[] = [
     GitHub,
     LinkedInLink,
     CodePen,
-    // Gists,
 ];

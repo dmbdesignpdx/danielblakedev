@@ -1,28 +1,23 @@
 ---
-import { Section } from "../constants";
+import { Section, Links } from "../constants";
 import Button from "../components/Button.astro";
 ---
 
-<section class="root" data-layout>
-	<h2 data-sr>{Section.INFO}</h2>
-	{
-		Section.InfoSection.map(item => (
-			<>
-				<h3>{item.Heading}</h3>
-				{
-					item.Links.map((link) => (
-						<Button
-							label={link.LABEL}
-							href={link.URL}
-							icon={link.ICON}
-							newTab
-						/>
-					))
-				}
-			</>
-		))
-	}
+
+<section class="root" data-layout aria-labelledby="info">
+	<h2 id="info" data-sr>{Section.INFO}</h2>
+
+	{Links.Info.map((link) => (
+		<Button
+			label={link.LABEL}
+			href={link.URL}
+			icon={link.ICON}
+			newTab
+		/>
+	))}
+
 </section>
+
 
 <style>
 	.root {

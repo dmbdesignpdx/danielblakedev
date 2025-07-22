@@ -5,14 +5,18 @@ const entry = await getEntry("site", "about");
 const { Content } = await entry.render();
 ---
 
-<section class="About" data-layout>
+
+<section class="About">
 	<h2 data-sr>{entry.data.heading}</h2>
 	<figure>
 		<p title={entry.data.caption}>{entry.data.figure}</p>
 		<figcaption data-sr>{entry.data.caption}</figcaption>
 	</figure>
-	<Content />
+	<div data-layout>
+		<Content />
+	</div>
 </section>
+
 
 <style>
 	.About {
@@ -38,6 +42,6 @@ const { Content } = await entry.render();
 	}
 
 	.About :global(p:last-of-type) {
-		margin-block-start: 1rem;
+		margin-block-start: var(--space-16);
 	}
 </style>

@@ -5,6 +5,7 @@ import Button from "./Button.astro";
 const { Contact } = Links;
 ---
 
+
 <header class="Hero">
 	<hgroup>
 		<h1>{Name.FULL}</h1>
@@ -17,6 +18,7 @@ const { Contact } = Links;
 	/>
 </header>
 
+
 <style>
 	.Hero {
 		--set-x: 0;
@@ -25,7 +27,7 @@ const { Contact } = Links;
 		display: grid;
 		block-size: 100vb;
 		place-items: center;
-		border-block-end: 10px solid var(--color-tertiary);
+		border-block-end: var(--space-16) solid var(--color-tertiary);
 		border-image: linear-gradient(to left, var(--gradient)) 1;
 		transform-style: preserve-3d;
 	}
@@ -75,10 +77,11 @@ const { Contact } = Links;
 	}
 </style>
 
-<script>
-	const hero = document.querySelector<HTMLElement>(".Hero");
 
-	if (hero) {
+<script>
+	const $hero = document.querySelector<HTMLElement>(".Hero");
+
+	if ($hero) {
 		let centerX: number = 0;
 		let centerY: number = 0;
 
@@ -88,23 +91,23 @@ const { Contact } = Links;
 			const setX = Math.round(distX / 25);
 			const setY = Math.round(distY / 20);
 
-			hero!.style.setProperty("--set-x", `${setX}px`);
-			hero!.style.setProperty("--set-y", `${setY}px`);
+			$hero!.style.setProperty("--set-x", `${setX}px`);
+			$hero!.style.setProperty("--set-y", `${setY}px`);
 		}
 
 		function resetPositions() {
-			hero!.style.setProperty("--set-x", "0");
-			hero!.style.setProperty("--set-y", "0");
+			$hero!.style.setProperty("--set-x", "0");
+			$hero!.style.setProperty("--set-y", "0");
 		}
 
-		hero.addEventListener("mousemove", setPositions, { passive: true });
-		hero.addEventListener("mouseout", resetPositions);
+		$hero.addEventListener("mousemove", setPositions, { passive: true });
+		$hero.addEventListener("mouseout", resetPositions);
 
 		const resize = new ResizeObserver(() => {
-			centerX = hero.clientWidth / 2;
-			centerY = hero.clientHeight / 2;
+			centerX = $hero.clientWidth / 2;
+			centerY = $hero.clientHeight / 2;
 		});
 
-		resize.observe(hero);
+		resize.observe($hero);
 	}
 </script>

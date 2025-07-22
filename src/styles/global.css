@@ -4,7 +4,7 @@
   --color-tertiary: #afc;
   --color-background: #000;
   --color-surface: #111;
-  --color-highlight: #ff0;
+  --color-highlight: #ff2;
   --color-text-on-primary: #000;
   --color-text-on-secondary: #000;
   --color-text-on-tertiary: #000;
@@ -14,8 +14,6 @@
 
   --gradient: var(--color-primary), var(--color-secondary),
     var(--color-tertiary);
-
-  --flex-column: column wrap;
 
   --font-body: "Inter";
   --font-heading: var(--font-body);
@@ -41,6 +39,7 @@
 
   --letter-spacing-heading: -0.02ch;
   --letter-spacing-body: 0.03em;
+  --letter-spacing-small: 0.06ch;
 
   --space-16: 1rem;
   --space-18: 1.125rem;
@@ -49,36 +48,19 @@
   --space-32: 2rem;
   --space-96: 6rem;
   --space-112: 7rem;
+  --space-304: 19rem;
   --space-large: 15vb;
 
-  --size-ui: 2.75rem;
+  --size-ui: 44px;
   --size-about-top: 20vb;
   --size-about-bottom: 15vb;
   --size-desktop: 48rem;
 
+  --radius-sm: 0.25rem;
+
+  --flow: column wrap;
   --gap: var(--space-16);
   --margin: var(--space-16);
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-secondary: #18f;
-    --color-tertiary: #0a6;
-    --color-background: #fff;
-    --color-surface: #f0f0f0;
-    --color-text-on-primary: #fff;
-    --color-text-on-secondary: #fff;
-    --color-text-on-tertiary: #fff;
-    --color-text-on-background: #000;
-    --color-text-on-surface: #000;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-  }
 }
 
 *,
@@ -93,6 +75,7 @@
 
 html {
   font-size: 100%;
+  color-scheme: dark only;
 }
 
 body {
@@ -110,6 +93,8 @@ body {
   line-height: var(--line-height-body);
   -webkit-hyphens: none;
   hyphens: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
 }
 
 small {
@@ -161,7 +146,7 @@ p a:is(:hover, :focus-visible) {
 
 @media (min-width: 48rem) {
   :root {
-		--flex-column: row wrap;
+		--flow: row wrap;
 		--margin: var(--space-48);
   }
 }

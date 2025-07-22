@@ -1,16 +1,8 @@
-# build output
 dist/
 .output/
-
-# dependencies
 node_modules/
-
-# logs
 npm-debug.log*
-
-# environment variables
+pnpm-debug.log*
 .env
 .env.production
-
-# macOS-specific files
 .DS_Store

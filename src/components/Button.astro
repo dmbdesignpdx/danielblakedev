@@ -16,6 +16,7 @@ const target = newTab ? "_blank" : undefined;
 const rel = newTab ? "noopener noreferrer" : undefined;
 ---
 
+
 <a
 	class="Button"
 	href={href}
@@ -26,6 +27,7 @@ const rel = newTab ? "noopener noreferrer" : undefined;
 	{label}
 </a>
 
+
 <style>
 	.Button {
 		display: flex;
@@ -35,23 +37,19 @@ const rel = newTab ? "noopener noreferrer" : undefined;
 		justify-content: center;
 		align-items: center;
 		font-size: var(--font-size-link);
-		border-radius: 4px;
+		border-radius: var(--radius-sm);
 	}
 
-	.Button:nth-of-type(4n+1) {
+	.Button:nth-of-type(3n+1) {
 		border: 1px solid var(--color-primary);
 	}
 
-	.Button:nth-of-type(4n+2) {
+	.Button:nth-of-type(3n+2) {
 		border: 1px solid var(--color-secondary);
 	}
 
-	.Button:nth-of-type(4n+3) {
+	.Button:nth-of-type(3n+3) {
 		border: 1px solid var(--color-tertiary);
-	}
-
-	.Button:nth-of-type(4n+4) {
-		border: 1px solid var(--color-highlight);
 	}
 
 	.Button:nth-of-type(4n+1):is(:hover, :focus-visible) {
