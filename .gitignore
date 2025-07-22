@@ -1,6 +1,8 @@
 dist/
 .output/
 node_modules/
+.idea/
+!.idea/dictionaries/
 npm-debug.log*
 pnpm-debug.log*
 .env
