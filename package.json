@@ -2,11 +2,12 @@
   "name": "daniel-blake-dev",
   "description": "Daniel Blake's personal website.",
   "author": "Daniel Blake <daniel@danielblake.dev>",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "private": true,
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
+  "packageManager": "pnpm@10.13.1",
   "scripts": {
     "start": "astro dev",
     "build": "astro build",

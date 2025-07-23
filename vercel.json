@@ -1,7 +1,6 @@
 {
   "buildCommand": "pnpm build",
   "cleanUrls": true,
-  "devCommand": "pnpm start",
   "framework": "astro",
   "installCommand": "pnpm install --prod",
   "outputDirectory": "dist",
