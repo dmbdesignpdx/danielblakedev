@@ -1,5 +1,6 @@
 declare module 'astro:content' {
 	interface RenderResult {
+		// @ts-ignore
 		Content: import('astro/runtime/server/index.js').AstroComponentFactory;
 		headings: import('astro').MarkdownHeading[];
 		remarkPluginFrontmatter: Record<string, any>;
@@ -110,6 +111,7 @@ declare module 'astro:content' {
 	): Promise<CollectionEntry<C>[]>;
 
 	export function render<C extends keyof AnyEntryMap>(
+	// @ts-ignore
 		entry: AnyEntryMap[C][string],
 	): Promise<RenderResult>;
 
@@ -136,6 +138,7 @@ declare module 'astro:content' {
 
 	type ReturnTypeOrOriginal<T> = T extends (...args: any[]) => infer R ? R : T;
 	type InferEntrySchema<C extends keyof AnyEntryMap> = import('astro/zod').infer<
+	// @ts-ignore
 		ReturnTypeOrOriginal<Required<ContentConfig['collections'][C]>['schema']>
 	>;
 

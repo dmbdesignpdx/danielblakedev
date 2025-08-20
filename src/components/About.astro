@@ -1,8 +1,11 @@
 ---
-import { getEntry } from "astro:content";
+import { getEntry, render } from "astro:content";
 
 const entry = await getEntry("site", "about");
-const { Content } = await entry.render();
+
+if (!entry) return null;
+
+const { Content } = await render(entry);
 ---
 
 
