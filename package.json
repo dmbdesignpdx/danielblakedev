@@ -4,9 +4,6 @@
   "author": "Daniel Blake <daniel@danielblake.dev>",
   "version": "2.2.0",
   "private": true,
-  "engines": {
-    "node": ">=22.0.0"
-  },
   "packageManager": "pnpm@10.15.0",
   "scripts": {
     "start": "astro dev",
