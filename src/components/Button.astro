@@ -38,32 +38,33 @@ const rel = newTab ? "noopener noreferrer" : undefined;
 		align-items: center;
 		font-size: var(--font-size-link);
 		border-radius: var(--radius-sm);
+    border: 1px solid;
 	}
 
 	.Button:nth-of-type(3n+1) {
-		border: 1px solid var(--color-primary);
+		border-color: var(--color-primary);
+
+    &:is(:hover, :focus-visible) {
+        background: var(--color-primary);
+        color: var(--color-background);
+    }
 	}
 
 	.Button:nth-of-type(3n+2) {
-		border: 1px solid var(--color-secondary);
+      border-color: var(--color-secondary);
+
+    &:is(:hover, :focus-visible) {
+      background: var(--color-secondary);
+      color: var(--color-background);
+    }
 	}
 
 	.Button:nth-of-type(3n+3) {
-		border: 1px solid var(--color-tertiary);
-	}
+      border-color: var(--color-tertiary);
 
-	.Button:nth-of-type(3n+1):is(:hover, :focus-visible) {
-		background: var(--color-primary);
-		color: var(--color-background);
-	}
-
-	.Button:nth-of-type(3n+2):is(:hover, :focus-visible) {
-		background: var(--color-secondary);
-		color: var(--color-background);
-	}
-
-	.Button:nth-of-type(3n+3):is(:hover, :focus-visible) {
-		background: var(--color-tertiary);
-		color: var(--color-background);
+    &:is(:hover, :focus-visible) {
+      background: var(--color-tertiary);
+      color: var(--color-background);
+    }
 	}
 </style>

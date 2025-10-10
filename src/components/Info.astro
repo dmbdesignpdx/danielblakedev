@@ -4,7 +4,11 @@ import Button from "../components/Button.astro";
 ---
 
 
-<section class="root" data-layout aria-labelledby="info">
+<section
+  class="Info"
+  data-layout
+  aria-labelledby="info"
+>
 	<h2 id="info" data-sr>{Section.INFO}</h2>
 
 	{Links.Info.map((link) => (
@@ -20,7 +24,7 @@ import Button from "../components/Button.astro";
 
 
 <style>
-	.root {
+	.Info {
 		contain: content;
 		content-visibility: auto;
 		display: grid;
@@ -28,20 +32,11 @@ import Button from "../components/Button.astro";
 		padding-block: 0 20vb;
 		contain-intrinsic-size: 0 19rem;
 		gap: var(--gap);
-	}
 
-	@media (min-width: 44rem) {
-		.root {
-			grid-template-columns: 1fr 1fr 1fr;
-		}
-	}
-
-	h3 {
-		grid-column: 1 / -1;
-		font-size: var(--font-size-link)
-	}
-
-	h3:not(:first-of-type) {
-		margin-block-start: var(--space-32);
+    @media (width > 44rem) {
+      & {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+    }
 	}
 </style>

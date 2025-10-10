@@ -27,23 +27,24 @@ const { Content } = await render(entry);
 		padding-block: var(--space-large);
 	}
 
-	.About figure p {
-		inline-size: fit-content;
-		margin: auto;
-		font-size: var(--font-size-icons);
-		text-align: center;
-		cursor: help;
-		text-shadow:
-			1px 0 var(--color-background-text),
-			0 1px var(--color-background-text),
-			-1px 0 var(--color-background-text),
-			0 -1px var(--color-background-text);
-	}
-
 	.About figure {
 		margin-block-end: var(--space-large);
+
+		& p {
+			inline-size: fit-content;
+			margin: auto;
+			font-size: var(--font-size-icons);
+			text-align: center;
+			cursor: help;
+			text-shadow:
+				1px 0 var(--color-background-text),
+				0 1px var(--color-background-text),
+				-1px 0 var(--color-background-text),
+				0 -1px var(--color-background-text);
+		}
 	}
 
+	/* Globals */
 	.About :global(p:last-of-type) {
 		margin-block-start: var(--space-16);
 	}
