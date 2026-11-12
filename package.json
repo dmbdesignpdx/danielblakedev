@@ -4,16 +4,22 @@
   "author": "Daniel Blake <daniel@danielblake.dev>",
   "version": "2.2.0",
   "private": true,
-  "packageManager": "pnpm@10.15.0",
   "scripts": {
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
   "dependencies": {
-    "astro": "^5.13.2"
+    "astro": "^7.4.11",
+    "typescript": "^7.0.2"
   },
-  "devDependencies": {
-    "typescript": "^5.9.2"
-  }
+  "packageManager": "bun@1.4.4",
+  "ignoreScripts": [
+    "sharp",
+    "unrs-resolver"
+  ],
+  "trustedDependencies": [
+    "sharp",
+    "unrs-resolver"
+  ]
 }
