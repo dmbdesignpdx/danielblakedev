@@ -1,14 +1,13 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["node_modules", "dist", "public"],
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "strictNullChecks": true,
     "allowJs": true,
     "baseUrl": ".",
     "outDir": "./dist",
-    "downlevelIteration": true
+    "downlevelIteration": true,
   },
-  "exclude": ["node_modules", "./dist", "./public"]
 }
