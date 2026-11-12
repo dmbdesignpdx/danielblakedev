@@ -24,7 +24,6 @@ There is no test suite or linter. `bun run build` is the check that matters; Ver
 - **Copy lives in two places.**
   - `src/content/site/*.md` (`about.md`, `footer.md`) holds long-form text and frontmatter. It is loaded through the `site` collection defined in `src/content.config.ts` (glob loader, zod schema) and read with `getEntry("site", "<id>")` in `About.astro` and `Footer.astro`.
   - `src/constants/` holds everything else (names, URLs, link lists, icons, labels, meta, GTM). It is re-exported as namespaces from `src/constants/index.ts` (`Meta`, `Link`, `Links`, `Section`, ...). Add new constants there instead of hardcoding them in components.
-- **Gotcha:** `About` and `Footer` do `if (!entry) return null`. If the collection config is missing or a frontmatter field is renamed, the section silently disappears and the build still succeeds. After content or collection changes, check that `dist/index.html` still contains the About and Footer `<h2>`s. Adding a markdown file or frontmatter field also requires updating the schema in `src/content.config.ts`.
 - Styling is scoped `<style>` blocks per component plus design tokens (CSS custom properties) in `src/styles/global.css`. `astro.config.mjs` sets `inlineStylesheets: 'always'`, so CSS is inlined into `index.html`.
 - `data-layout`, `data-layout-wide` and `data-sr` are attribute hooks styled in `global.css`. Reuse them instead of adding new wrappers.
 - `.astro/` (generated types) is committed. Expect diffs there after dependency upgrades or content changes.
