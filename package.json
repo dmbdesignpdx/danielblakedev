@@ -2,7 +2,7 @@
   "name": "daniel-blake-dev",
   "description": "Daniel Blake's personal website.",
   "author": "Daniel Blake <daniel@danielblake.dev>",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "private": true,
   "scripts": {
     "start": "astro dev",
