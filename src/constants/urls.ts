@@ -1,6 +1,5 @@
 import { LowerCase } from "./name";
 
-
 export const DOMAIN = `${LowerCase.FIRST}${LowerCase.LAST}.dev`;
 export const SITE = `https://${DOMAIN}`;
 export const EMAIL = `${LowerCase.FIRST}@${DOMAIN}`;

@@ -9,8 +9,7 @@
   --color-surface-text: var(--color-background-text);
   --color-highlight-text: #000;
 
-  --gradient: var(--color-primary), var(--color-secondary),
-    var(--color-tertiary);
+  --gradient: var(--color-primary), var(--color-secondary), var(--color-tertiary);
 
   --font-body: "Inter";
   --font-heading: var(--font-body);
@@ -87,7 +86,7 @@ body {
 }
 
 small {
-	font: inherit;
+  font: inherit;
 }
 
 a {
@@ -126,15 +125,15 @@ p a:is(:hover, :focus-visible) {
 [data-layout] {
   max-inline-size: var(--size-desktop);
   margin-inline: auto;
-	padding-inline: var(--space-16);
+  padding-inline: var(--space-16);
 }
 
 [data-layout-wide] {
-	padding-inline: var(--margin);
+  padding-inline: var(--margin);
 }
 
 @media (min-width: 48rem) {
   :root {
-		--margin: var(--space-48);
+    --margin: var(--space-48);
   }
 }

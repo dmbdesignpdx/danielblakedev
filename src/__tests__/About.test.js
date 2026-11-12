@@ -1,7 +1,7 @@
-import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { expect, test, describe, beforeEach } from "vitest";
-import { JSDOM } from "jsdom";
 import { within } from "@testing-library/dom";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { JSDOM } from "jsdom";
+import { beforeEach, describe, expect, test } from "vitest";
 
 import About from "../components/About.astro";
 
@@ -22,10 +22,7 @@ describe("About component", () => {
     const figure = ui.getByRole("figure");
 
     expect(figure).toBeInTheDocument();
-    expect(within(figure).getByText("💀 🖤 💻")).toHaveAttribute(
-      "title",
-      "I love code.",
-    );
+    expect(within(figure).getByText("💀 🖤 💻")).toHaveAttribute("title", "I love code.");
     expect(within(figure).getByText("I love code.")).toBeInTheDocument();
   });
 

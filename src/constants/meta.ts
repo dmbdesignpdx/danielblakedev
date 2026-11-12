@@ -1,7 +1,6 @@
 import * as Name from "./name";
 import { SITE } from "./urls";
 
-
 export const TITLE = `${Name.FULL} // ${Name.CAREER}`;
 export const AUTHOR = Name.FULL;
 export const URL = SITE;

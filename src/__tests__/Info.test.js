@@ -1,10 +1,10 @@
-import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { expect, test, describe, beforeEach } from "vitest";
-import { JSDOM } from "jsdom";
 import { within } from "@testing-library/dom";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { JSDOM } from "jsdom";
+import { beforeEach, describe, expect, test } from "vitest";
 
 import Info from "../components/Info.astro";
-import { Section, Links } from "../constants";
+import { Links, Section } from "../constants";
 
 describe("Info component", () => {
   let ui;
@@ -16,9 +16,7 @@ describe("Info component", () => {
   });
 
   test("renders its heading", () => {
-    expect(
-      ui.getByRole("heading", { name: Section.INFO }),
-    ).toBeInTheDocument();
+    expect(ui.getByRole("heading", { name: Section.INFO })).toBeInTheDocument();
   });
 
   test("labels its section with the heading", () => {

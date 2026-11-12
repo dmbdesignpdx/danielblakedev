@@ -1,4 +1,5 @@
 ---
+
 heading: Footer
 copyright: All rights reserved. All other brands and trademarks are the property of their respective owners.
 ---

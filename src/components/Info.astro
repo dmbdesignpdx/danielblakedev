@@ -1,42 +1,44 @@
 ---
-import { Section, Links } from "../constants";
 import Button from "../components/Button.astro";
+import { Links, Section } from "../constants";
 ---
-
 
 <section
   class="Info"
   data-layout
   aria-labelledby="info"
 >
-	<h2 id="info" data-sr>{Section.INFO}</h2>
+  <h2
+    id="info"
+    data-sr
+  >
+    {Section.INFO}
+  </h2>
 
-	{Links.Info.map((link) => (
-		<Button
-			label={link.LABEL}
-			href={link.URL}
-			icon={link.ICON}
-			newTab
-		/>
-	))}
-
+  {Links.Info.map(link => (
+    <Button
+      label={link.LABEL}
+      href={link.URL}
+      icon={link.ICON}
+      newTab
+    />
+  ))}
 </section>
 
-
 <style>
-	.Info {
-		contain: content;
-		content-visibility: auto;
-		display: grid;
-		grid: auto / 1fr;
-		padding-block: 0 20vb;
-		contain-intrinsic-size: 0 19rem;
-		gap: var(--gap);
+.Info {
+  contain: content;
+  content-visibility: auto;
+  display: grid;
+  grid: auto / 1fr;
+  padding-block: 0 20vb;
+  contain-intrinsic-size: 0 19rem;
+  gap: var(--gap);
 
-    @media (width > 44rem) {
-      & {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
+  @media (width > 44rem) {
+    & {
+      grid-template-columns: 1fr 1fr 1fr;
     }
-	}
+  }
+}
 </style>

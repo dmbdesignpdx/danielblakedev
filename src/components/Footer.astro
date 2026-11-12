@@ -9,33 +9,34 @@ const { Content } = await render(entry);
 const year: number = new Date().getFullYear();
 ---
 
-
-<footer class="Footer" data-layout-wide>
-	<h2 data-sr>{entry.data.heading}</h2>
-	<Content />
-	<p><small>Copyright {year} {entry.data.copyright}</small></p>
+<footer
+  class="Footer"
+  data-layout-wide
+>
+  <h2 data-sr>{entry.data.heading}</h2>
+  <Content />
+  <p><small>Copyright {year} {entry.data.copyright}</small></p>
 </footer>
 
-
 <style>
-	.Footer {
-		contain: content;
-		content-visibility: auto;
-		padding-block: var(--space-96) var(--space-112);
-		contain-intrinsic-size: 0 var(--space-304);
-		color: var(--color-surface-text);
-		background-color: var(--color-surface);
-		line-height: var(--line-height-quote);
-		letter-spacing: var(--letter-spacing-small);
+.Footer {
+  contain: content;
+  content-visibility: auto;
+  padding-block: var(--space-96) var(--space-112);
+  contain-intrinsic-size: 0 var(--space-304);
+  color: var(--color-surface-text);
+  background-color: var(--color-surface);
+  line-height: var(--line-height-quote);
+  letter-spacing: var(--letter-spacing-small);
 
-    & p {
-      margin-block-start: var(--gap);
-      font-size: var(--font-size-small);
-    }
-	}
+  & p {
+    margin-block-start: var(--gap);
+    font-size: var(--font-size-small);
+  }
+}
 
-	/* Paragraph in Content */
-	.Footer :global(p) {
-		font-size: var(--font-size-link);
-	}
+/* Paragraph in Content */
+.Footer :global(p) {
+  font-size: var(--font-size-link);
+}
 </style>

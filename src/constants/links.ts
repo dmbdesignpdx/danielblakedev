@@ -1,7 +1,6 @@
-import * as URL from "./urls";
 import * as Icon from "./icons";
 import * as Label from "./labels";
-
+import * as URL from "./urls";
 
 interface Link {
   LABEL: string;
@@ -39,8 +38,4 @@ export const CodePen: Link = {
   ICON: Icon.CODEPEN,
 };
 
-export const Info: Link[] = [
-    GitHub,
-    LinkedInLink,
-    CodePen,
-];
+export const Info: Link[] = [GitHub, LinkedInLink, CodePen];

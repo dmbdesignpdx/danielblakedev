@@ -1,70 +1,63 @@
 ---
 interface Props {
-	label: string;
-	icon: string;
-	href?: string;
-	newTab?: boolean;
+  label: string;
+  icon: string;
+  href?: string;
+  newTab?: boolean;
 }
 
-const {
-	label,
-	href,
-	newTab,
-	icon,
-} = Astro.props;
+const { label, href, newTab, icon } = Astro.props;
 const target = newTab ? "_blank" : undefined;
 const rel = newTab ? "noopener noreferrer" : undefined;
 ---
 
-
 <a
-	class="Button"
-	href={href}
-	target={target}
-	rel={rel}
+  class="Button"
+  href={href}
+  target={target}
+  rel={rel}
 >
-	<span aria-hidden="true">{icon}</span>&nbsp;
-	{label}
+  <span aria-hidden="true">{icon}</span>&nbsp;
+  {label}
 </a>
 
-
 <style>
-	.Button {
-		display: flex;
-		min-block-size: var(--size-ui);
-		min-inline-size: var(--size-ui);
-		padding-inline: 1.5ch;
-		justify-content: center;
-		align-items: center;
-		font-size: var(--font-size-link);
-		border-radius: var(--radius-sm);
-    border: 1px solid;
-	}
+.Button {
+  display: flex;
+  min-block-size: var(--size-ui);
+  min-inline-size: var(--size-ui);
+  padding-inline: 1.5ch;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--font-size-link);
+  border-radius: var(--radius-sm);
+  border: 1px solid;
+}
 
-	.Button:nth-of-type(3n+1) {
-		border-color: var(--color-primary);
+.Button:nth-of-type(3n + 1) {
+  border-color: var(--color-primary);
 
-    &:is(:hover, :focus-visible) {
-        background: var(--color-primary);
-        color: var(--color-background);
-    }
-	}
+  &:is(:hover, :focus-visible) {
+    background: var(--color-primary);
+    color: var(--color-background);
+  }
+}
 
-	.Button:nth-of-type(3n+2) {
-      border-color: var(--color-secondary);
+.Button:nth-of-type(3n + 2) {
+  border-color: var(--color-secondary);
 
-    &:is(:hover, :focus-visible) {
-      background: var(--color-secondary);
-      color: var(--color-background);
-    }
-	}
+  &:is(:hover, :focus-visible) {
+    background: var(--color-secondary);
+    color: var(--color-background);
+  }
+}
 
-	.Button:nth-of-type(3n+3) {
-      border-color: var(--color-tertiary);
+.Button:nth-of-type(3n + 3) {
+  border-color: var(--color-tertiary);
 
-    &:is(:hover, :focus-visible) {
-      background: var(--color-tertiary);
-      color: var(--color-background);
-    }
-	}
+  &:is(:hover, :focus-visible) {
+    background: var(--color-tertiary);
+    color: var(--color-background);
+  }
+}
 </style>

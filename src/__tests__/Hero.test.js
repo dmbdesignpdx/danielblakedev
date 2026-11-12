@@ -1,10 +1,10 @@
-import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import { expect, test, describe, beforeEach } from "vitest";
-import { JSDOM } from "jsdom";
 import { within } from "@testing-library/dom";
+import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import { JSDOM } from "jsdom";
+import { beforeEach, describe, expect, test } from "vitest";
 
 import Hero from "../components/Hero.astro";
-import { Name, Links } from "../constants";
+import { Links, Name } from "../constants";
 
 describe("Hero component", () => {
   let ui;

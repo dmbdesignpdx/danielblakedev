@@ -9,7 +9,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "vitest",
-    "test:ci": "vitest --run"
+    "test:ci": "vitest --run",
+    "lint": "biome check",
+    "fmt": "biome format --write"
   },
   "dependencies": {
     "astro": "^7.4.11",
@@ -24,6 +26,7 @@
     "unrs-resolver"
   ],
   "devDependencies": {
+    "@biomejs/biome": "2.6.7",
     "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^7.0.1",
     "jsdom": "^31.0.0",
