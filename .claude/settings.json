@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bun run *)",
+      "Bash(bun test*)",
+      "Bash(bun i *)",
+      "Bash(bun add *)",
+      "Bash(bun run comp *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)"
+    ],
+    "ask": ["Bash(rm *)", "Bash(git commit *)"],
+    "deny": ["Bash(git push *)"]
+  }
+}

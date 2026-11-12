@@ -1,10 +1,10 @@
-### Hello! 👋
+## Hello! 👋
 
 I am a software engineer living in Portland, Oregon and this is the source code for my website, [danielblake.dev](https://danielblake.dev).
 
 <br>
 
-#### Features
+### Features
 
 - Single-page static site: hero, about, related links and footer
 - Built with [Astro](https://astro.build/) 7 and TypeScript 7
@@ -17,7 +17,7 @@ I am a software engineer living in Portland, Oregon and this is the source code 
 
 <br>
 
-#### For those interested:
+### For those interested
 
 (I'm assuming you have [Bun](https://bun.sh) installed)
 
@@ -26,7 +26,7 @@ After cloning this project, `cd` into it.
 Install dependencies:
 
 ```bash
-bun install
+bun i
 ```
 
 Then launch:
@@ -39,7 +39,25 @@ Available on [**localhost:4321**](http://localhost:4321)
 
 Other commands:
 
-| Command           | Action                                   |
-| :---------------- | :--------------------------------------- |
-| `bun run build`   | Build the static site to `./dist/`       |
-| `bun run preview` | Preview the production build locally     |
+| Command           | Action                               |
+| :---------------- | :----------------------------------- |
+| `bun run build`   | Build the static site to `./dist/`   |
+| `bun run preview` | Preview the production build locally |
+| `bun run test`    | Run tests in watch mode (Vitest)     |
+| `bun run test:ci` | Run tests once and exit              |
+
+<br>
+
+#### Testing
+
+Component tests use [Vitest](https://vitest.dev/), [Testing Library](https://testing-library.com/) and [jsdom](https://github.com/jsdom/jsdom). Each component is rendered with Astro's container API, and the test checks what a user sees, such as headings, text and links.
+
+Tests live in `src/__tests__/` and are named `<Component>.test.js`. Shared setup, including the `jest-dom` matchers, is in `src/__tests__/_setup.js`. Configuration is in `vitest.config.mjs`.
+
+To run the suite:
+
+```bash
+bun run test:ci
+```
+
+Use `bun run test` while you work to re-run tests on each change.
