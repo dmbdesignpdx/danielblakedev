@@ -10,4 +10,4 @@ Hello there! For almost a decade I have used the dark arts to conjure up high-qu
 
 I am currently looking for a role as a Web Developer, Frontend Developer, Design Engineer, or Full-stack Developer. My core skills include React, Next.js, TypeScript, HTML, CSS, JavaScript, Astro.js, Tailwind CSS, and Node.js. I'm living in Portland, OR and am open to remote, hybrid, and on-site careers. If you're interested in chatting, I'm available anytime.
 
-[daniel@danielblake.dev](mailto:daniel@danielblake.dev)
+[daniel@danielblake.dev](mailto:daniel@danielblake.dev) | [résumé](resume/daniel_blake_software_engineer.pdf)
