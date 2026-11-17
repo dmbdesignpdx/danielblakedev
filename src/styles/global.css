@@ -105,6 +105,12 @@ p a:is(:hover, :focus-visible) {
   text-decoration: underline;
 }
 
+hr {
+  border: 1px solid var(--color-surface-text);
+  margin-block: var(--space-32);
+  opacity: 0.33;
+}
+
 ::selection {
   color: var(--color-highlight-text);
   background-color: var(--color-highlight);

@@ -2,10 +2,10 @@
   "name": "daniel-blake-dev",
   "description": "Daniel Blake's personal website.",
   "author": "Daniel Blake <daniel@danielblake.dev>",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "private": true,
   "scripts": {
-    "start": "astro dev",
+    "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "test": "vitest",

@@ -5,6 +5,7 @@ import Head from "../components/Head.astro";
 import Hero from "../components/Hero.astro";
 import Info from "../components/Info.astro";
 import { GTM, Section } from "../constants";
+import { schema } from "../schema";
 import "../styles/global.css";
 
 const PROD: boolean = import.meta.env.PROD;
@@ -20,5 +21,9 @@ const PROD: boolean = import.meta.env.PROD;
     </main>
     <Footer />
     {PROD && <noscript set:html={GTM.BODY} />}
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(schema)}
+    />
   </body>
 </html>
