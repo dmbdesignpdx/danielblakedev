@@ -1,0 +1,22 @@
+# Daniel Blake // Software Engineer
+
+> Personal website of Daniel Blake, a software engineer based in Portland, Oregon. A single-page static site with an introduction, skills summary, and links to professional profiles.
+
+Daniel has spent almost a decade building high-quality websites and frontend experiences, and has grown a strong interest in backend foundations and working with data. Daniel builds accessible, responsive, and fast websites with a user-first approach. Daniel is currently looking for a role as a Web Developer, Frontend Developer, Design Engineer, or Full-stack Developer, and is open to remote, hybrid, and on-site positions.
+
+Core skills: React, Next.js, TypeScript, HTML, CSS, JavaScript, Astro.js, Tailwind CSS, Node.js.
+
+## Site
+
+- [Home](https://danielblake.dev): Introduction, about section, skills, availability for work, and contact links.
+
+## Profiles
+
+- [GitHub](https://github.com/dmbdesignpdx): Source code and open-source projects.
+- [LinkedIn](https://linkedin.com/in/danielblakepdx): Professional background and experience.
+- [CodePen](https://codepen.io/dmbdesignpdx/pens/public): Frontend experiments and demos.
+- [GitHub Gists](https://gist.github.com/dmbdesignpdx/public): Code snippets and notes.
+
+## Contact
+
+- [daniel@danielblake.dev](mailto:daniel@danielblake.dev): Available to chat about roles anytime.
