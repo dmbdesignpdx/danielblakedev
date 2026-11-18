@@ -18,12 +18,14 @@ const isActive = (path: string) => pathname === path;
   <a
     href="/projects"
     aria-current={isActive("/projects") ? "page" : undefined}
+    data-astro-prefetch
   >
     {Section.PROJECTS}
   </a>
   <a
     href="/how-i-build"
     aria-current={isActive("/how-i-build") ? "page" : undefined}
+    data-astro-prefetch
   >
     How I Build
   </a>
