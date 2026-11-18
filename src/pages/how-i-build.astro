@@ -1,0 +1,25 @@
+---
+import { getEntry, render } from "astro:content";
+import SecondaryHero from "../components/SecondaryHero.astro";
+import Root from "../layouts/Root.astro";
+import "../styles/prose.css";
+
+const entry = await getEntry("site", "build");
+
+if (!entry) return null;
+
+const { Content } = await render(entry);
+---
+
+<Root title={entry.data.heading}>
+  <SecondaryHero
+    heading={entry.data.heading}
+    slot="hero"
+  />
+  <div
+    class="prose"
+    data-layout="lg"
+  >
+    <Content />
+  </div>
+</Root>

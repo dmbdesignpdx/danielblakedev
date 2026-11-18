@@ -11,7 +11,7 @@ export const schema = {
   jobTitle: Name.CAREER,
   sameAs: [URL.LINKED_IN, URL.GIT_HUB, URL.CODEPEN],
   skills:
-    "Web Development, React, Next.js, Astro.js, Vue.js, TypeScript, HTML, CSS, JavaScript, Tailwind, Node.js, GraphQL, Postgres",
+    "Web Development, React, Next.js, Astro.js, TypeScript, HTML, CSS, JavaScript, Tailwind, Node.js, GraphQL, Postgres, Contentful, Hygraph, Supabase, Shadcn, PandaCSS",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Portland",

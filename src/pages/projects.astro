@@ -1,0 +1,14 @@
+---
+import Collection from "../components/Collection.astro";
+import SecondaryHero from "../components/SecondaryHero.astro";
+import { Section } from "../constants";
+import Root from "../layouts/Root.astro";
+---
+
+<Root title={Section.PROJECTS}>
+  <SecondaryHero
+    heading={Section.PROJECTS}
+    slot="hero"
+  />
+  <Collection />
+</Root>

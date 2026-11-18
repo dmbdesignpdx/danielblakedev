@@ -4,15 +4,16 @@ interface Props {
   icon: string;
   href?: string;
   newTab?: boolean;
+  variant?: "solid" | "ghost";
 }
 
-const { label, href, newTab, icon } = Astro.props;
+const { label, href, newTab, icon, variant = "solid" } = Astro.props;
 const target = newTab ? "_blank" : undefined;
 const rel = newTab ? "noopener noreferrer" : undefined;
 ---
 
 <a
-  class="Button"
+  class:list={["Button", variant]}
   href={href}
   target={target}
   rel={rel}
@@ -57,6 +58,15 @@ const rel = newTab ? "noopener noreferrer" : undefined;
 
   &:is(:hover, :focus-visible) {
     background: var(--color-tertiary);
+    color: var(--color-background);
+  }
+}
+
+.Button.ghost {
+  border: 0;
+
+  &:is(:hover, :focus-visible) {
+    background: var(--color-background-text);
     color: var(--color-background);
   }
 }

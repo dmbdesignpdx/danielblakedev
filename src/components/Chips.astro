@@ -1,0 +1,33 @@
+---
+import { Label } from "../constants";
+
+interface Props {
+  list: string[];
+}
+
+const { list } = Astro.props;
+---
+
+<ul class="Chips">
+  <p data-sr>{Label.STACK}:</p>
+  {list.map(item => <li>{item}</li>)}
+</ul>
+
+<style>
+.Chips {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.Chips li {
+  display: inline-block;
+  padding: 0.5em 0.75em;
+  color: var(--color-surface);
+  font-size: var(--font-size-small);
+  background-color: hsl(240 20% 80%);
+  font-weight: 700;
+  text-box: trim-both cap alphabetic;
+}
+</style>

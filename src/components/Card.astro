@@ -1,0 +1,92 @@
+---
+import { Picture } from "astro:assets";
+import { Label } from "../constants";
+import Chips from "./Chips.astro";
+
+interface Props {
+  heading: string;
+  image: ImageMetadata;
+  tags: string[];
+  copy: string;
+  repo?: string;
+  site: string;
+}
+
+const { heading, image, tags, copy, repo, site } = Astro.props;
+---
+
+<article class="Card">
+  <header>
+    <h3>{heading}</h3>
+  </header>
+  <div class="content">
+    <Picture
+      src={image}
+      alt=""
+      formats={["webp"]}
+      fit="cover"
+      widths={[440, 810]}
+      sizes="(max-width: 460px) 440px, 810px"
+    />
+    <p class="copy">{copy}</p>
+    <p class="links">
+      <a
+        href={site}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {Label.WEBSITE}
+      </a>
+      {repo && " // "}
+      {repo && (
+        <a
+          href={repo}
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          {Label.GIT_HUB}
+        </a>
+      )}
+    </p>
+  </div>
+  <footer>
+    <Chips list={tags} />
+  </footer>
+</article>
+
+<style>
+.Card {
+  contain: content;
+  display: flex;
+  padding: var(--space-20);
+  flex-direction: column;
+  gap: var(--space-18);
+  background-color: var(--color-surface);
+}
+
+.Card h3 {
+  font-size: var(--font-size-body);
+  text-box: trim-both cap alphabetic;
+  padding-block: var(--space-8);
+  color: color-mix(in srgb-linear, var(--color-primary) 60%, white);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.copy {
+  line-height: 1.4;
+  font-size: var(--font-size-link);
+}
+
+.Card footer {
+  margin-block-start: auto;
+}
+
+.links {
+  font-size: 1rem;
+}
+</style>

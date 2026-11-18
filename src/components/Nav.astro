@@ -1,0 +1,89 @@
+---
+const { pathname } = Astro.url;
+
+import { Name, Section } from "src/constants";
+import { Contact } from "src/constants/links";
+import Button from "./Button.astro";
+
+const isActive = (path: string) => pathname === path;
+---
+
+<nav class="Nav">
+  <a
+    href="/"
+    aria-current={isActive("/") ? "page" : undefined}
+  >
+    {Name.FULL}
+  </a>
+  <a
+    href="/projects"
+    aria-current={isActive("/projects") ? "page" : undefined}
+  >
+    {Section.PROJECTS}
+  </a>
+  <a
+    href="/how-i-build"
+    aria-current={isActive("/how-i-build") ? "page" : undefined}
+  >
+    How I Build
+  </a>
+  <Button
+    label={Contact.LABEL}
+    href={Contact.URL}
+    icon={Contact.ICON}
+    variant="ghost"
+  />
+</nav>
+
+<style>
+.Nav {
+  display: flex;
+  block-size: 4rem;
+  inline-size: 100%;
+  padding-inline: var(--space-16);
+  position: fixed;
+  inset-inline-start: 0;
+  inset-block-start: 0;
+  z-index: 9;
+  gap: var(--space-32);
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-background);
+  border-block-end: 1px solid var(--color-tertiary);
+  border-image: linear-gradient(to left, var(--gradient)) 1;
+
+  @media (width >= 42rem) {
+    justify-content: start;
+    padding-inline: var(--space-48);
+  }
+}
+
+.Nav a {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  inline-size: fit-content;
+
+  &[aria-current="page"] {
+    text-decoration: underline;
+  }
+
+  @media (width >= 42rem) {
+    font-size: var(--font-size-body);
+
+    &:hover {
+      color: var(--color-secondary);
+      text-decoration: underline;
+    }
+  }
+}
+
+.Nav :global(.Button) {
+  margin-inline-start: auto;
+  font-size: var(--font-size-base);
+  display: none;
+
+  @media (width >= 42rem) {
+    display: flex;
+  }
+}
+</style>

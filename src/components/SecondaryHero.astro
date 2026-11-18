@@ -1,0 +1,30 @@
+---
+interface Props {
+  heading: string;
+}
+
+const { heading } = Astro.props;
+---
+
+<header
+  class="SecondaryHero"
+  data-layout="lg"
+>
+  <h1>{heading}</h1>
+</header>
+
+<style>
+.SecondaryHero {
+  padding-block-start: 20svh;
+}
+
+.SecondaryHero h1 {
+  font-size: 3rem;
+  text-box: trim-both cap alphabetic;
+  padding-block-end: var(--space-16);
+
+  @media (width >= 42rem) {
+    font-size: 4rem;
+  }
+}
+</style>
