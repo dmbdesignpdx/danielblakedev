@@ -1,0 +1,66 @@
+.prose {
+  --prose-color: var(--color-background-text);
+  --prose-heading-color: var(--color-tertiary);
+  --prose-strong-color: inherit;
+  --prose-hr-color: var(--color-border);
+  --spacing: 0.25rem;
+
+  color: var(--prose-color);
+  font-size: var(--font-size-body);
+  line-height: 1.75;
+  margin-block-start: calc(var(--spacing) * 16);
+}
+
+.prose *:where(:not(.not-prose, .not-prose *)) + *:where(:not(.not-prose, .not-prose *)) {
+  margin-block-start: calc(var(--spacing) * 5);
+}
+
+.prose h2:where(:not(.not-prose, .not-prose *)) {
+  font-size: var(--font-size-title);
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: var(--prose-heading-color);
+  font-weight: var(--font-weight-bold);
+  margin-block-start: calc(var(--spacing) * 14);
+}
+
+.prose p:where(:not(.not-prose, .not-prose *)) {
+  margin-block-start: calc(var(--spacing) * 5);
+  text-rendering: optimizeLegibility;
+}
+
+.prose ul:where(:not(.not-prose, .not-prose *)),
+.prose ol:where(:not(.not-prose, .not-prose *)) {
+  padding-inline-start: calc(var(--spacing) * 6);
+}
+
+.prose ul:where(:not(.not-prose, .not-prose *)) {
+  list-style-type: disc;
+}
+
+.prose ol:where(:not(.not-prose, .not-prose *)) {
+  list-style-type: decimal;
+}
+
+.prose li + li:where(:not(.not-prose, .not-prose *)) {
+  margin-block-start: calc(var(--spacing) * 2);
+}
+
+.prose strong:where(:not(.not-prose, .not-prose *)) {
+  color: var(--prose-strong-color);
+  font-weight: var(--font-weight-bold);
+}
+
+.prose hr:where(:not(.not-prose, .not-prose *)) {
+  border-color: var(--prose-hr-color);
+  margin-block-start: calc(var(--spacing) * 12);
+  margin-block-end: calc(var(--spacing) * 12);
+}
+
+.prose :first-child:where(:not(.not-prose, .not-prose *)) {
+  margin-block-start: 0;
+}
+
+.prose :last-child:where(:not(.not-prose, .not-prose *)) {
+  margin-block-end: 0;
+}

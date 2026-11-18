@@ -9,6 +9,7 @@ const site = defineCollection({
     figure: z.string().optional(),
     caption: z.string().optional(),
     copyright: z.string().optional(),
+    description: z.string().optional(),
   }),
 });
 

@@ -1,0 +1,30 @@
+---
+import Card from "../components/Card.astro";
+import { Section } from "../constants";
+import { projects } from "../content/projects.ts";
+---
+
+<section
+  class="Collection"
+  data-layout="lg"
+>
+  <h2 data-sr>{Section.PROJ_HEADING}</h2>
+  {projects.map(project => <Card {...project} />)}
+</section>
+
+<style>
+.Collection {
+  display: grid;
+  gap: var(--space-20);
+  grid-template-columns: 1fr;
+  padding-block-start: var(--space-112);
+
+  @media (width >= 40rem) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (width >= 60rem) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

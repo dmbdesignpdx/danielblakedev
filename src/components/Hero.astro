@@ -1,20 +1,11 @@
 ---
-import { Links, Name } from "../constants";
-import Button from "./Button.astro";
-
-const { Contact } = Links;
+import { Name } from "../constants";
 ---
 
 <header class="Hero">
-  <hgroup>
-    <h1>{Name.FULL}</h1>
-    <p data-text={Name.CAREER}>{Name.CAREER}</p>
-  </hgroup>
-  <Button
-    label={Contact.LABEL}
-    href={Contact.URL}
-    icon={Contact.ICON}
-  />
+  <div>
+    <h1 data-text={Name.CAREER}>{Name.CAREER}</h1>
+  </div>
 </header>
 
 <style>
@@ -25,16 +16,14 @@ const { Contact } = Links;
   display: grid;
   block-size: 100vb;
   place-items: center;
-  border-block-end: var(--space-16) solid var(--color-tertiary);
-  border-image: linear-gradient(to left, var(--gradient)) 1;
   transform-style: preserve-3d;
 }
 
-.Hero hgroup {
+.Hero > div {
   position: static;
 }
 
-.Hero p {
+.Hero h1 {
   inline-size: min-content;
   margin-block-end: 0.175em;
   font-size: var(--font-size-heading);
@@ -44,7 +33,7 @@ const { Contact } = Links;
   text-rendering: geometricPrecision;
 }
 
-.Hero p::before {
+.Hero h1::before {
   position: absolute;
   z-index: -1;
   content: attr(data-text);
@@ -57,21 +46,6 @@ const { Contact } = Links;
   transform: translate(var(--set-x), var(--set-y));
   transition: transform 0.2s;
   backface-visibility: hidden;
-}
-
-.Hero h1 {
-  font-size: var(--font-size-title);
-  font-weight: var(--font-weight-regular);
-  position: absolute;
-  inset-inline-start: var(--margin);
-  inset-block-start: calc(var(--margin) + 0.05ex);
-  inline-size: fit-content;
-}
-
-.Hero :global(.Button) {
-  position: absolute;
-  inset-inline-end: var(--margin);
-  inset-block-start: var(--margin);
 }
 </style>
 

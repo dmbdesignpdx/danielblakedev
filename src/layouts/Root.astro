@@ -1,0 +1,42 @@
+---
+import Footer from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+import Info from "../components/Info.astro";
+import Nav from "../components/Nav.astro";
+import { GTM, Meta, Section } from "../constants";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  schema?: string;
+}
+
+const PROD: boolean = import.meta.env.PROD;
+const { TITLE } = Meta;
+const { title, schema } = Astro.props;
+
+const pageTitle = !title ? TITLE : `${title} - ${TITLE}`;
+---
+
+<html
+  lang="en"
+  dir="ltr"
+>
+  <Head title={pageTitle} />
+  <body>
+    <slot name="hero" />
+    <Nav />
+    <main aria-label={Section.MAIN}>
+      <slot />
+      <Info />
+    </main>
+    <Footer />
+    {schema && (
+      <script
+        type="application/ld+json"
+        set:html={schema}
+      />
+    )}
+    {PROD && <noscript set:html={GTM.BODY} />}
+  </body>
+</html>
